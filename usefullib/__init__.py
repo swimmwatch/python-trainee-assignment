@@ -10,7 +10,8 @@ from usefullib.utils import extract_nums
 
 def spiral_order(matrix: Matrix2D[int]) -> Iterable[int]:
     """
-    Iterate over matrix 2D in spiral order (counterclockwise, starting from the upper left corner).
+    Iterate over matrix 2D in spiral order
+    (counterclockwise, starting from the upper left corner).
 
     :param matrix: Matrix 2D
     :return: Iterator

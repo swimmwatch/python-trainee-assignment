@@ -34,6 +34,7 @@ def test_spiral_order(matrix: Matrix2D[int], expected: list[int]):
     ([[1, 2]], ValueError),
     ([[1], [2]], ValueError)
 ])
-def test_spiral_order_negative_cases(matrix: Matrix2D[int], expected_exception: Type[Exception]):
+def test_spiral_order_negative_cases(
+        matrix: Matrix2D[int], expected_exception: Type[Exception]):
     with pytest.raises(expected_exception):
         list(spiral_order(matrix))
