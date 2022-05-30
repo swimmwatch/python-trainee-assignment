@@ -13,12 +13,18 @@ def spiral_order(matrix: Matrix2D[int]) -> Iterable[int]:
     Iterate over matrix 2D in spiral order (counterclockwise, starting from the upper left corner).
 
     :param matrix: Matrix 2D
-    :return:
+    :return: Iterator
     """
-    rows, cols = len(matrix), len(matrix[0])
+    rows = len(matrix)
+    if not rows:
+        return iter([])
+
+    cols = len(matrix[0])
+    if not cols:
+        raise ValueError('Incorrect matrix: no columns')
 
     if rows != cols:
-        ValueError('Matrix must be square')
+        raise ValueError('Matrix must be square')
 
     top = 0
     bottom = rows - 1
