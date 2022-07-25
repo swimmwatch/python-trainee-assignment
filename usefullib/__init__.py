@@ -76,4 +76,4 @@ async def get_matrix(url: str) -> List[int]:
         nums = list(extract_nums(resp.text))
         dim = int(math.sqrt(len(nums)))
         matrix = np.reshape(nums, (dim, dim))
-    return list(spiral_order(matrix))
+    return list(spiral_order(matrix))  # type: ignore
