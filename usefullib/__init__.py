@@ -1,4 +1,6 @@
 import math
+from http import HTTPStatus
+from http.client import HTTPException
 from typing import List, Iterable
 
 import httpx
@@ -67,6 +69,8 @@ def spiral_order(matrix: Matrix2D[int]) -> Iterable[int]:
 async def get_matrix(url: str) -> List[int]:
     async with httpx.AsyncClient() as client:
         resp = await client.get(url)
+        if resp.status_code != HTTPStatus.OK:
+            raise HTTPException(f'Request was unsuccessful: {HTTPStatus(resp.status_code)}')
         nums = list(extract_nums(resp.text))
         dim = int(math.sqrt(len(nums)))
         matrix = np.reshape(nums, (dim, dim))
